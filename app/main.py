@@ -2,7 +2,7 @@ from flask import Flask, request, session
 import flask
 import json
 
-from .util import get_lord, get_faction
+from util import get_lord, get_faction
 
 app = Flask(__name__)
 app.secret_key = b'Jdk34X8nHsfXzRCRySdfFjtNgQ8gMfM+MnHKxuMk+Z8='
@@ -59,8 +59,3 @@ def randomize():
         flask.flash(f"Player {i + 1}: {faction} led by {player_suggestion_lord}.")
 
     return flask.redirect(flask.url_for('index'))
-
-
-if __name__ == "__main__":
-    # Only for debugging while developing
-    app.run(host="localhost", debug=True, port=8080)
